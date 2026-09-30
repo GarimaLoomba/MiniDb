@@ -1,0 +1,24 @@
+# Compiled executable
+minidb
+*.exe
+*.out
+
+# Object files
+*.o
+*.obj
+
+# Build directories
+build/
+bin/
+
+# IDE/editor files
+.vscode/
+.vs/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
