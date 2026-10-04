@@ -30,4 +30,6 @@ typedef struct
 
 void table_init(Table *table, const char *name);
 
+int table_insert_record(Table *table, const Record *record);
+
 #endif
