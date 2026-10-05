@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdio.h>
 
 #include "../include/table.h"
 
@@ -23,4 +24,30 @@ int table_insert_record(Table *table, const Record *record)
     table->record_count++;
 
     return 0;
+}
+
+void table_print_records(const Table *table)
+{
+    for (int i = 0; i < table->record_count; i++)
+    {
+        printf("Record %d: ", i + 1);
+
+        for (int j = 0; j < MAX_FIELDS; j++)
+        {
+            if (table->records[i].values[j][0] == '\0')
+            {
+                break;
+            }
+
+            printf("%s", table->records[i].values[j]);
+
+            if (j < MAX_FIELDS - 1 &&
+                table->records[i].values[j + 1][0] != '\0')
+            {
+                printf(" | ");
+            }
+        }
+
+        printf("\n");
+    }
 }
