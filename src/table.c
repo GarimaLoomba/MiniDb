@@ -51,3 +51,70 @@ void table_print_records(const Table *table)
         printf("\n");
     }
 }
+
+int table_update_record(
+    Table *table,
+    const char *id,
+    const char *field,
+    const char *new_value
+)
+{
+    int field_index = -1;
+
+    for (int i = 0; i < table->column_count; i++)
+    {
+        if (strcmp(table->columns[i].name, field) == 0)
+        {
+            field_index = i;
+            break;
+        }
+    }
+
+    if (field_index == -1)
+    {
+        return -1;
+    }
+
+    for (int i = 0; i < table->record_count; i++)
+    {
+        if (strcmp(table->records[i].values[0], id) == 0)
+        {
+            strcpy(
+                table->records[i].values[field_index],
+                new_value
+            );
+
+            return 0;
+        }
+    }
+
+    return -1;
+}
+
+int table_delete_record(Table *table, const char *id)
+{
+    int record_index = -1;
+
+    for (int i = 0; i < table->record_count; i++)
+    {
+        if (strcmp(table->records[i].values[0], id) == 0)
+        {
+            record_index = i;
+            break;
+        }
+    }
+
+    if (record_index == -1)
+    {
+        return -1;
+    }
+
+    for (int i = record_index; i < table->record_count - 1; i++)
+    {
+        table->records[i] = table->records[i + 1];
+    }
+
+    table->record_count--;
+
+    return 0;
+}
