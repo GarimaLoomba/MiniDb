@@ -34,4 +34,6 @@ int table_insert_record(Table *table, const Record *record);
 void table_print_records(const Table *table);
 int table_add_column(Table *table, const char *column_name);    
 int table_delete_record(Table *table, const char *id);
+
+int table_find_record(const Table *table, const char *id);
 #endif

@@ -118,3 +118,18 @@ int table_delete_record(Table *table, const char *id)
 
     return 0;
 }
+
+
+int table_find_record(const Table *table, const char *id)
+{
+    for (int i = 0; i < table->record_count; i++)
+    {
+        if (strcmp(table->records[i].values[0], id) == 0)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
