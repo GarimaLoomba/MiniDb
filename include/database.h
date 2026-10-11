@@ -20,4 +20,6 @@ void database_init(Database *database, const char *name);
 
 int database_create_table(Database *database, const char *table_name);
 
+int database_find_table(const Database *database, const char *table_name);
+
 #endif

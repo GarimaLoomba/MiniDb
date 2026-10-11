@@ -25,3 +25,16 @@ int database_create_table(Database *database, const char *table_name)
 
     return 0;
 }
+
+int database_find_table(const Database *database, const char *table_name)
+{
+    for (int i = 0; i < database->table_count; i++)
+    {
+        if (strcmp(database->tables[i].name, table_name) == 0)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}   
