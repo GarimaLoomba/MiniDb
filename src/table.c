@@ -133,3 +133,37 @@ int table_find_record(const Table *table, const char *id)
     return -1;
 }
 
+
+
+
+int table_add_column(Table *table, const char *column_name)
+{
+    if (table == NULL || column_name == NULL || column_name[0] == '\0')
+    {
+        return -1;
+    }
+
+    if (table->column_count >= MAX_COLUMNS)
+    {
+        return -1;
+    }
+
+    if (strlen(column_name) >= MAX_COLUMN_NAME)
+    {
+        return -1;
+    }
+
+    for (int i = 0; i < table->column_count; i++)
+    {
+        if (strcmp(table->columns[i].name, column_name) == 0)
+        {
+            return -1;
+        }
+    }
+
+    strcpy(table->columns[table->column_count].name, column_name);
+    table->column_count++;
+
+    return 0;
+}
+    

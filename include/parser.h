@@ -1,4 +1,4 @@
-```c
+
 #ifndef PARSER_H
 #define PARSER_H
 
@@ -8,4 +8,4 @@
 int parser_tokenize(char *command, char *tokens[], int max_tokens);
 
 #endif
-```
+

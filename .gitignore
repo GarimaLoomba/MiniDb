@@ -23,5 +23,7 @@ Thumbs.db
 *.tmp
 *.swp
 
+
 # MiniDB runtime data
+data/metadata/*.dat
 data/tables/*.dat
